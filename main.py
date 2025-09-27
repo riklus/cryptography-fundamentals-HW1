@@ -17,7 +17,7 @@ class AESCRT:
         return Random.get_random_bytes(16)
 
     @staticmethod
-    def __encrypt_block(key: bytes, blk: bytes):
+    def _encrypt_block(key: bytes, blk: bytes):
         assert len(key) == 16
         assert len(blk) == 16
 
@@ -25,7 +25,7 @@ class AESCRT:
         return cip.encrypt(blk)
 
     @staticmethod
-    def __decrypt_block(blk: bytes, msg: bytes):
+    def _decrypt_block(blk: bytes, msg: bytes):
         assert len(blk) == 16
         assert len(msg) == 16
 
