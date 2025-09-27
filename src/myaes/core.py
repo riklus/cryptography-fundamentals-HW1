@@ -54,6 +54,9 @@ class MYAES:
     def get_iv(self):
         return int.from_bytes(self._iv, byteorder='big', signed=False)
     
+    def get_iv_bytes(self):
+        return self._iv
+    
     @staticmethod
     def keygen():
         return Random.get_random_bytes(16)
