@@ -26,12 +26,12 @@ class MYAES:
         return cip.encrypt(blk)
 
     @staticmethod
-    def _decrypt_block(blk: bytes, msg: bytes):
+    def _decrypt_block(key: bytes, blk: bytes):
+        assert len(key) == 16
         assert len(blk) == 16
-        assert len(msg) == 16
 
-        cip = AES.new(blk, AES.MODE_ECB)
-        return cip.decrypt(msg)
+        cip = AES.new(key, AES.MODE_ECB)
+        return cip.decrypt(blk)
 
 
 def main():
