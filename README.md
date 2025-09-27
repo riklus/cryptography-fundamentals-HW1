@@ -80,7 +80,7 @@ Here's a simple example demonstrating how to use the `MYAES` class:
 ```python
 myaes = MYAES()
 key = myaes.keygen()
-m = b"Espresso House: transaction +50$"
+msg = b"Espresso House: transaction +50$"
 
 enc = myaes.encrypt(msg, key)
 dec = myaes.decrypt(enc, key)
