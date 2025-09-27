@@ -2,7 +2,8 @@ from Crypto.Cipher import AES
 from Crypto import Random
 
 
-class AESCRT:
+
+class MYAES:
     def encrypt(self, msg: bytes, key: bytes):
         assert len(msg) % 16 == 0   # padless
         assert len(key) == 16
