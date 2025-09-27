@@ -77,14 +77,15 @@ This command will execute all test functions defined in the project.
 
 Here's a simple example demonstrating how to use the `MYAES` class:
 
-```
-TODO
-```
+```python
+myaes = MYAES()
+key = myaes.keygen()
+m = b"Espresso House: transaction +50$"
 
-This will output:
+enc = myaes.encrypt(msg, key)
+dec = myaes.decrypt(enc, key)
 
-```
-TODO
+assert msg == dec
 ```
 
 ---
