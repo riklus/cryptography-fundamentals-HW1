@@ -68,31 +68,3 @@ class MYAES:
 
         cip = AES.new(key, AES.MODE_ECB)
         return cip.encrypt(blk)
-
-
-def main():
-    msg = b"A"*16
-    key = MYAES.keygen()
-
-    k =  MYAES.keygen()
-    m =  MYAES.keygen()
-    
-    my_aes = MYAES()
-    iv = my_aes.get_iv()
-    my_enc = my_aes.encrypt(msg, key)
-
-    py_aes = AES.new(key, AES.MODE_CTR, counter=Counter.new(128, initial_value=iv))
-    py_enc = py_aes.encrypt(msg)
-
-    print(iv)
-    print(my_enc[16:], len(my_enc[16:]))
-    print(py_enc, len(py_enc))
-
-    assert my_enc[16:] == py_enc
-
-    print(len(my_enc))
-    print(msg, my_aes.decrypt(my_enc, key), AES.new(key, AES.MODE_CTR, counter=Counter.new(128, initial_value=iv)).decrypt(py_enc))
-
-
-if __name__ == "__main__":
-    main()
