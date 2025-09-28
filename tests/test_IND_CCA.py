@@ -1,5 +1,6 @@
 import secrets
 from pytest import mark
+from Crypto.Util.strxor import strxor
 from myaes import MYAES
 
 
@@ -35,4 +36,23 @@ def test_IND_CPA_a(_):
     if dec == b"\x00" * 16:
         assert msg == m1
     elif dec == b"\xff" * 16:
+        assert msg == m2
+
+
+@mark.parametrize("_", range(0, 1024))
+def test_IND_CPA_b(_):
+    myaes = MYAES()
+    key = myaes.keygen()
+
+    # Attacker can't access m1, m2, msg variable
+    m1, m2 = (b"\x00" * 16 + b"\x00" * 16), (b"\xff" * 16 + b"\xff" * 16)
+    msg = secrets.choice([m1, m2])
+    enc = myaes.encrypt(msg, key)
+
+    # Attacker flips every bit in last msg block
+    dec = myaes.decrypt(enc[:-16] + strxor(enc[16:], b"\ff" * 16), key)
+
+    if dec[:16] == b"\x00" * 16:
+        assert msg == m1
+    elif dec[:16] == b"\xff" * 16:
         assert msg == m2
