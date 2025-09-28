@@ -17,9 +17,9 @@ To install `uv`, you can follow the instructions from the [official uv documenta
 
 ### Development Envitonment Setup
 
-1. **Clone the repository**:
+1. **Download the repository**:
     ```bash
-    git clone <repository-url>
+    unzip myaes.zip
     cd myaes
     ```
 
