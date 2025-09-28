@@ -1,3 +1,4 @@
+from Crypto.Random import get_random_bytes
 from myaes import MYAES
 
 def test_encrypt_decrypt():
@@ -12,10 +13,10 @@ def test_encrypt_decrypt():
     assert msg == dec
 
 def test_encrypt_decrypt_multiblock():
-    """Encrypt a block and ensure decryption returns the same block"""
+    """Encrypt a message and ensure decryption returns the same block"""
     myaes = MYAES()
     key = myaes.keygen()
-    msg = myaes.keygen() * 256
+    msg = get_random_bytes(256)
     
     enc = myaes.encrypt(msg, key)
     dec = myaes.decrypt(enc, key)
