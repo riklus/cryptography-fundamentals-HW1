@@ -1,4 +1,3 @@
-from Crypto.Util import Counter
 from Crypto.Util.strxor import strxor
 
 from Crypto.Cipher import AES
