@@ -1,6 +1,6 @@
 from myaes import MYAES
 
-def test_IND_CCA():
+def test_malleability():
     myaes = MYAES()
     key = myaes.keygen()
     msg = b"Transfer 100 DKK to Starbucks LT"
