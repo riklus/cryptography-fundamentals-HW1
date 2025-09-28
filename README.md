@@ -79,6 +79,8 @@ To install `uv`, you can follow the instructions from the [official uv documenta
 Here's a simple example demonstrating how to use the `MYAES` class:
 
 ```python
+from myaes import MYAES
+
 myaes = MYAES()
 key = myaes.keygen()
 msg = b"Transfer 100 DKK to Starbucks LT"
