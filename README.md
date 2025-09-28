@@ -63,10 +63,11 @@ To install `uv`, you can follow the instructions from the [official uv documenta
 1. **Ensure the virtual environment is active** (see activation above).
 
 2. **Run the tests using `pytest`**:
-
+    ```
     uv run pytest
-
-This command will execute all test functions defined in the project.
+    ```
+    
+    This command will execute all test functions defined in the project.
 
 ### Interpreting Test Results
 
@@ -94,6 +95,5 @@ assert msg == dec
 
 - Ensure that your Python version is 3.8 or higher to avoid compatibility issues.
 - The `uv sync` command simplifies the setup process by handling environment creation and dependency installation in one step.
-- For any issues or contributions, please refer to the project's issue tracker or contact the maintainers.
 
 ---
