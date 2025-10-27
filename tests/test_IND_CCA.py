@@ -21,7 +21,7 @@ def test_malleability():
 
 
 @mark.parametrize("_", range(0, 1024))
-def test_IND_CPA_a(_):
+def test_IND_CCA_a(_):
     myaes = MYAES()
     key = myaes.keygen()
 
@@ -40,7 +40,7 @@ def test_IND_CPA_a(_):
 
 
 @mark.parametrize("_", range(0, 1024))
-def test_IND_CPA_b(_):
+def test_IND_CCA_b(_):
     myaes = MYAES()
     key = myaes.keygen()
 
